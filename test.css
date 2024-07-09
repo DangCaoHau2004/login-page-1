@@ -37,14 +37,14 @@ body {
   padding: 5px;
   margin: 0 10px; /*Khoảng cách giữa các icon*/
 }
-/*bao quát tất cả icon*/
+
 .social-icons {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
 }
-/*điền input*/
+
 input {
   height: 30px;
   background-color: whitesmoke;
@@ -53,7 +53,7 @@ input {
   margin-bottom: 20px;
   padding: 0px 5px;
 }
-/*button chung*/
+
 button {
   height: auto;
   width: 160px;
@@ -63,7 +63,7 @@ button {
   border: 0px;
   border-radius: 10px;
 }
-/*định dạng forgot password anker*/
+
 .forgot-password {
   color: inherit; /* Giữ màu chữ mặc định của văn bản */
   text-decoration: none; /* Bỏ gạch chân (underline) của liên kết */
@@ -72,16 +72,16 @@ button {
   margin: 0; /* Xóa khoảng cách ngoài của liên kết */
   padding: 0; /* Xóa khoảng cách bên trong của liên kết */
 }
-/*định dạng paragraph trong forgot pass*/
+
 .forgot-password p {
   margin-bottom: 16px;
   margin-top: 0px;
 }
-/*toàn bộ tab sign-up*/
+
 .sign-up {
   display: none;
 }
-/*tab introduce sign in*/
+
 .introduce.sign-in {
   height: 399px;
   width: 399px;
@@ -94,16 +94,16 @@ button {
   color: white;
   position: relative; /* Đặt thuộc tính position để sử dụng transform */
 }
-/*điều chỉnh introduce chung*/
+
 .introduce * {
   margin-top: 70px;
   padding: 0px 20px;
 }
-/*button trong introduce*/
+
 .introduce button {
   border: 1px solid white;
 }
-/*tab introduce sign up*/
+
 .introduce.sign-up {
   height: 399px;
   width: 399px;
@@ -115,9 +115,8 @@ button {
   text-align: center;
   color: white;
   position: relative; /* Đặt thuộc tính position để sử dụng transform */
-  z-index: 1;
 }
-/*tùy biến web*/
+
 @media (max-width: 600px) {
   .container {
     display: block;
@@ -127,62 +126,52 @@ button {
   }
 
   .introduce.sign-in {
-    background: transparent;
-    width: 100%;
+    background: linear-gradient(to right, #e0e2e4, #a357f5);
     color: black;
     border-radius: 0;
     border: 0;
-    padding-top: 100px;
+    margin-top: 100px;
   }
+
   .introduce.sign-up {
-    width: 100%;
     background-color: white;
     color: black;
     border-radius: 10px;
   }
-  .form-container.sign-up {
-    padding-top: 50px;
-    padding-bottom: 100px;
-  }
 }
-/*animation*/
+
 .animation-turnleft {
-  animation: signTurnLeft 0.5s forwards;
+  animation: signInTurnLeft 2s;
+  animation-fill-mode: forwards;
 }
 
 .animation-turnright {
-  animation: signTurnRight 0.5s forwards;
-}
-/*chuyển dạng border khi thao tác*/
-.change-border-sign-in {
-  border-top-right-radius: 30%;
-  border-bottom-right-radius: 30%;
-  border-top-left-radius: 0%;
-  border-bottom-left-radius: 0%;
-}
-.change-border-sign-up {
-  border-top-left-radius: 30%;
-  border-bottom-left-radius: 30%;
-  border-top-right-radius: 0%;
-  border-bottom-right-radius: 0%;
+  animation: signUpTurnRight 2s;
+  animation-fill-mode: forwards;
 }
 
-@keyframes signTurnLeft {
+@keyframes signInTurnLeft {
   0% {
     transform: translateX(0);
   }
+  50% {
+    transform: translateX(-400px);
+  }
   100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes signUpTurnRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
     transform: translateX(
-      -400px
-    ); /*container có bề ngang là 800px mà introduce có bề ngang là 399px thì nó cần dịch 400px*/
-  }
-}
-
-@keyframes signTurnRight {
-  0% {
-    transform: translateX(0);
+      400px
+    ); /*phải tối ưu làm sao để cho nó không phải điền số*/
   }
   100% {
-    transform: translateX(400px);
+    transform: translateX(0);
   }
 }
